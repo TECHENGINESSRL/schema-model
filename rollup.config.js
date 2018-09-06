@@ -20,11 +20,11 @@ const BROWSER_TARGET = (env.TARGET === 'browser');
 const NODE_TARGET = (env.TARGET === 'node');
 
 module.exports = {
-    sourceMap: process.env.NODE_ENV !== 'production' ? 'inline' : false,
+    sourcemap: process.env.NODE_ENV !== 'production' ? 'inline' : false,
     format: 'umd',
-    moduleName: camelize(project.main),
+    name: camelize(project.main),
     entry: TEST_ENV ? './test/**/*.spec.js' : project.module,
-    useStrict: false,
+    strict: false,
     plugins: [
         NODE_TARGET ? builtins() : {},
         multiEntry(),
